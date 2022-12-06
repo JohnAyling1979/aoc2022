@@ -1,7 +1,13 @@
 const fs = require('fs');
-const data = fs.readFileSync('sample.txt', 'utf8').split(/\r?\n/);
+const data = fs.readFileSync('data.txt', 'utf8').split(/\r?\n/);
 
 const stacks = [
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
 	[],
 	[],
 	[],
@@ -19,6 +25,30 @@ const stackIndexs = [
 	{
 		index: 2,
 		lineIndex: 9
+	},
+	{
+		index: 3,
+		lineIndex: 13
+	},
+	{
+		index: 4,
+		lineIndex: 17
+	},
+	{
+		index: 5,
+		lineIndex: 21
+	},
+	{
+		index: 6,
+		lineIndex: 25
+	},
+	{
+		index: 7,
+		lineIndex: 29
+	},
+	{
+		index: 8,
+		lineIndex: 33
 	},
 ];
 
@@ -44,5 +74,15 @@ stackIndexs.forEach(stackIndex => {
 	stacks[stackIndex.index].reverse();
 });
 
+index++;
 
-console.log(stacks);
+for(; index < data.length; index++) {
+	const [, qty, , from, , to] = data[index].split(' ');
+
+	for (let i = 0; i < qty; i++) {
+		const crate = stacks[from - 1].pop();
+		stacks[to - 1].push(crate);
+	}
+}
+
+console.log(stacks.map(stack => stack[stack.length - 1]).join(''));
