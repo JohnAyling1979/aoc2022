@@ -70,109 +70,93 @@ const isAdjacent = () => {
 	return false;
 }
 
-const moveHeadRight = spaces => {
-	for (let i = 0; i < spaces; i++) {
-		head.x++;
+const moveHeadRight = () => {
+	head.x++;
 
-		if (!isAdjacent()) {
-			if (head.y !== tail.y) {
-				if (head.y > tail.y) {
-					tail.y++;
-				} else {
-					tail.y--;
-				}
-			}
-			tail.x++;
-
-			if (!visited.find(location => location.x === tail.x && location.y === tail.y)) {
-				visited.push({...tail});
+	if (!isAdjacent()) {
+		if (head.y !== tail.y) {
+			if (head.y > tail.y) {
+				tail.y++;
+			} else {
+				tail.y--;
 			}
 		}
+		tail.x++;
 	}
 }
 
-const moveHeadUp = spaces => {
-	for (let i = 0; i < spaces; i++) {
-		head.y--;
+const moveHeadUp = () => {
+	head.y--;
 
-		if (!isAdjacent()) {
-			if (head.x !== tail.x) {
-				if (head.x > tail.x) {
-					tail.x++;
-				} else {
-					tail.x--;
-				}
-			}
-			tail.y--;
-
-			if (!visited.find(location => location.x === tail.x && location.y === tail.y)) {
-				visited.push({...tail});
+	if (!isAdjacent()) {
+		if (head.x !== tail.x) {
+			if (head.x > tail.x) {
+				tail.x++;
+			} else {
+				tail.x--;
 			}
 		}
+		tail.y--;
 	}
 }
 
-const moveHeadLeft = spaces => {
-	for (let i = 0; i < spaces; i++) {
-		head.x--;
+const moveHeadLeft = () => {
+	head.x--;
 
-		if (!isAdjacent()) {
-			if (head.y !== tail.y) {
-				if (head.y > tail.y) {
-					tail.y++;
-				} else {
-					tail.y--;
-				}
-			}
-			tail.x--;
-
-			if (!visited.find(location => location.x === tail.x && location.y === tail.y)) {
-				visited.push({...tail});
+	if (!isAdjacent()) {
+		if (head.y !== tail.y) {
+			if (head.y > tail.y) {
+				tail.y++;
+			} else {
+				tail.y--;
 			}
 		}
+		tail.x--;
 	}
 }
 
-const moveHeadDown = spaces => {
-	for (let i = 0; i < spaces; i++) {
-		head.y++;
+const moveHeadDown = () => {
+	head.y++;
 
-		if (!isAdjacent()) {
-			if (head.x !== tail.x) {
-				if (head.x > tail.x) {
-					tail.x++;
-				} else {
-					tail.x--;
-				}
-			}
-			tail.y++;
-
-			if (!visited.find(location => location.x === tail.x && location.y === tail.y)) {
-				visited.push({...tail});
+	if (!isAdjacent()) {
+		if (head.x !== tail.x) {
+			if (head.x > tail.x) {
+				tail.x++;
+			} else {
+				tail.x--;
 			}
 		}
+		tail.y++;
 	}
 }
 
-const visited = [{...tail}];
+const visited = [{ ...tail }];
 
 steps.forEach(step => {
 	const [direction, spaces] = step.split(' ');
 
-	switch (direction) {
-		case 'U':
-			moveHeadUp(+spaces);
-		break;
-		case 'D':
-			moveHeadDown(+spaces);
-		break;
-		case 'L':
-			moveHeadLeft(+spaces);
-		break;
-		case 'R':
-			moveHeadRight(+spaces);
-		break;
+	for (let i = 0; i < +spaces; i++) {
+		switch (direction) {
+			case 'U':
+				moveHeadUp();
+				break;
+			case 'D':
+				moveHeadDown();
+				break;
+			case 'L':
+				moveHeadLeft();
+				break;
+			case 'R':
+				moveHeadRight();
+				break;
+		}
+
+		if (!visited.find(location => location.x === tail.x && location.y === tail.y)) {
+			visited.push({ ...tail });
+		}
 	}
+
+
 });
 
 console.log(visited.length);
