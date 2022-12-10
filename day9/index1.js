@@ -155,8 +155,6 @@ steps.forEach(step => {
 			visited.push({ ...tail });
 		}
 	}
-
-
 });
 
 console.log(visited.length);
