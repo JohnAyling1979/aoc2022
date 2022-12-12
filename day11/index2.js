@@ -2,9 +2,7 @@ const fs = require('fs');
 const input = fs.readFileSync('data.txt', 'utf8').split(/\r?\n/);
 let modDivisor = 1;
 
-const reduceWorry = (worry) => {
-	return worry % modDivisor;
-}
+const reduceWorry = worry => worry % modDivisor;
 
 const monkeys = [];
 currentMonkeyIndex = null;
