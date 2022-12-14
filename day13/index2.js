@@ -21,11 +21,11 @@ const compair = (leftNumber, rightNumber) => {
 			console.log('- Right side is smaller, so inputs are not in the right order');
 			return false;
 		}
-	
+
 		if (leftNumber < rightNumber) {
 			console.log('- Left side is smaller, so inputs are in the right order')
 			return true;
-		}	
+		}
 	} else {
 		if (!Array.isArray(leftNumber)) {
 			console.log(`- Mixed types; convert left to [${leftNumber}] and retry comparison`)
@@ -59,11 +59,11 @@ const compair = (leftNumber, rightNumber) => {
 }
 
 packets.sort((one, two) => {
-    if (compair(one, two)) {
-        return -1;
-    }
+	if (compair(one, two)) {
+		return -1;
+	}
 
-    return 1;
+	return 1;
 });
 
 const packetsString = packets.map(line => JSON.stringify(line));
