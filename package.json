@@ -4,7 +4,7 @@
   "description": "My JS solutions for Advent of code 2022",
   "main": "null",
   "scripts": {
-    "test": "jest"
+    "test": "jest --silent --verbose"
   },
   "repository": {
     "type": "git",
