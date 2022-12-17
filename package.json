@@ -1,0 +1,27 @@
+{
+  "name": "aoc2022",
+  "version": "1.0.0",
+  "description": "My JS solutions for Advent of code 2022",
+  "main": "null",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnAyling1979/aoc2022.git"
+  },
+  "keywords": [
+    "Advent",
+    "Code",
+    "Christmas"
+  ],
+  "author": "John Ayling",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JohnAyling1979/aoc2022/issues"
+  },
+  "homepage": "https://github.com/JohnAyling1979/aoc2022#readme",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
