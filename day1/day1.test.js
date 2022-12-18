@@ -11,4 +11,3 @@ describe('Day 1: Calorie Counting', () => {
 		test('Part 2 total calories should be 206780', () => {expect(part2('data.txt')).toBe(206780)});
 	});
 });
-
