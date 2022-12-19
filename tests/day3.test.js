@@ -1,4 +1,4 @@
-const {part1, part2} = require('.');
+const {part1, part2} = require('../day3');
 
 describe('Day 3: Rucksack Reorganization', () => {
 	describe('Sample Data', () => {
