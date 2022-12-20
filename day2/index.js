@@ -76,8 +76,8 @@ function part2(dataFile) {
 	return sum;
 }
 
-console.log(part1('sample.txt'));
-console.log(part2('sample.txt'));
+console.log(part1('data.txt'));
+console.log(part2('data.txt'));
 
 module.exports = {
 	part1,
