@@ -1,9 +1,9 @@
 const {part1, part2} = require('../day6');
 
-describe('Day 5: Supply Stacks', () => {
+describe('Day 6: Tuning Trouble', () => {
 	describe('Sample Data', () => {
 		test('Part 1 the number of processed character before the first start-of-packet marker is detected should be 7', () => {expect(part1('sample.txt')).toBe(11)});
-		test('Part 2 the number of processed character before the first start-of-packet marker is detected should be MCD', () => {expect(part2('sample.txt')).toBe(26)});
+		test('Part 2 the number of processed character before the first start-of-packet marker is detected should be 26', () => {expect(part2('sample.txt')).toBe(26)});
 	});
 
 	describe('Actual Data', () => {
