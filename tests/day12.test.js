@@ -8,6 +8,6 @@ describe('Day 12: Hill Climbing Algorithm', () => {
 
 	describe('Actual Data', () => {
 		test('Part 1 the fewest steps required to reach the top should be 425', () => {expect(part1('data.txt')).toBe(425)});
-		test('Part 2 the fewest steps required to reach the top from any ground square be 418', () => {expect(part2('data.txt')).toBe(418)});
+		test('Part 2 the fewest steps required to reach the top from any ground square should be 418', () => {expect(part2('data.txt')).toBe(418)});
 	});
 });
