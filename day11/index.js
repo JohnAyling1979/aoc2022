@@ -151,7 +151,6 @@ function part2(dataFile) {
 
 	monkeys.sort((a, b) => b.itemsInspected - a.itemsInspected);
 
-
 	return monkeys[0].itemsInspected * monkeys[1].itemsInspected;
 }
 
