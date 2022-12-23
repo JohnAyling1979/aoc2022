@@ -31,7 +31,7 @@ function part1(dataFile) {
     }
 
     const remaining = smallerSection.filter(
-      (item) => !biggerSection.includes(item)
+      item => !biggerSection.includes(item)
     );
 
     if (remaining.length === 0) {
@@ -73,7 +73,7 @@ function part2(dataFile) {
     }
 
     const remaining = smallerSection.filter(
-      (item) => !biggerSection.includes(item)
+      item => !biggerSection.includes(item)
     );
 
     if (remaining.length !== smallerSection.length) {

@@ -55,7 +55,7 @@ function part1(dataFile) {
       break;
     }
 
-    stackIndexs.forEach((stackIndex) => {
+    stackIndexs.forEach(stackIndex => {
       const crate = line.charAt(stackIndex.lineIndex);
 
       if (crate && crate !== ' ' && isNaN(crate)) {
@@ -64,7 +64,7 @@ function part1(dataFile) {
     });
   }
 
-  stackIndexs.forEach((stackIndex) => {
+  stackIndexs.forEach(stackIndex => {
     stacks[stackIndex.index].reverse();
   });
 
@@ -79,7 +79,7 @@ function part1(dataFile) {
     }
   }
 
-  return stacks.map((stack) => stack[stack.length - 1]).join('');
+  return stacks.map(stack => stack[stack.length - 1]).join('');
 }
 
 function part2(dataFile) {
@@ -137,7 +137,7 @@ function part2(dataFile) {
       break;
     }
 
-    stackIndexs.forEach((stackIndex) => {
+    stackIndexs.forEach(stackIndex => {
       const crate = line.charAt(stackIndex.lineIndex);
 
       if (crate && crate !== ' ' && isNaN(crate)) {
@@ -146,7 +146,7 @@ function part2(dataFile) {
     });
   }
 
-  stackIndexs.forEach((stackIndex) => {
+  stackIndexs.forEach(stackIndex => {
     stacks[stackIndex.index].reverse();
   });
 
@@ -164,7 +164,7 @@ function part2(dataFile) {
     stacks[to - 1] = stacks[to - 1].concat(moveStack.reverse());
   }
 
-  return stacks.map((stack) => stack[stack.length - 1]).join('');
+  return stacks.map(stack => stack[stack.length - 1]).join('');
 }
 
 module.exports = {

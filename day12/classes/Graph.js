@@ -24,7 +24,7 @@ class Graph {
 
     times[startNode] = 0;
 
-    this.nodes.forEach((node) => {
+    this.nodes.forEach(node => {
       if (node !== startNode) {
         times[node] = Infinity;
       }
@@ -36,7 +36,7 @@ class Graph {
       let shortestStep = pq.dequeue();
       let currentNode = shortestStep[0];
 
-      this.adjacencyList[currentNode].forEach((neighbor) => {
+      this.adjacencyList[currentNode].forEach(neighbor => {
         let time = times[currentNode] + neighbor.weight;
 
         if (time < times[neighbor.node]) {

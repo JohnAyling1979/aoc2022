@@ -9,7 +9,7 @@ function part1(dataFile) {
   currentMonkeyIndex = null;
   const targetRound = 20;
 
-  input.forEach((line) => {
+  input.forEach(line => {
     if (line.startsWith('Monkey')) {
       const [, index] = line.split(' ');
       currentMonkeyIndex = +index.replace(':', '');
@@ -26,7 +26,7 @@ function part1(dataFile) {
     } else if (line.startsWith('  Starting items:')) {
       const numbers = line.replace('  Starting items:', '');
 
-      numbers.split(',').forEach((section) => {
+      numbers.split(',').forEach(section => {
         monkeys[currentMonkeyIndex].items.push(+section);
       });
     } else if (line.startsWith('  Operation:')) {
@@ -52,8 +52,8 @@ function part1(dataFile) {
   });
 
   for (let round = 1; round <= targetRound; round++) {
-    monkeys.forEach((monkey) => {
-      monkey.items.forEach((item) => {
+    monkeys.forEach(monkey => {
+      monkey.items.forEach(item => {
         let worryLevel = monkey.operation(item);
         worryLevel = Math.floor(worryLevel / 3);
 
@@ -81,13 +81,13 @@ function part2(dataFile) {
     .split(/\r?\n/);
   let modDivisor = 1;
 
-  const reduceWorry = (worry) => worry % modDivisor;
+  const reduceWorry = worry => worry % modDivisor;
 
   const monkeys = [];
   currentMonkeyIndex = null;
   const targetRound = 10000;
 
-  input.forEach((line) => {
+  input.forEach(line => {
     if (line.startsWith('Monkey')) {
       const [, index] = line.split(' ');
       currentMonkeyIndex = +index.replace(':', '');
@@ -104,7 +104,7 @@ function part2(dataFile) {
     } else if (line.startsWith('  Starting items:')) {
       const numbers = line.replace('  Starting items:', '');
 
-      numbers.split(',').forEach((section) => {
+      numbers.split(',').forEach(section => {
         monkeys[currentMonkeyIndex].items.push(+section);
       });
     } else if (line.startsWith('  Operation:')) {
@@ -133,8 +133,8 @@ function part2(dataFile) {
   });
 
   for (let round = 1; round <= targetRound; round++) {
-    monkeys.forEach((monkey) => {
-      monkey.items.forEach((item) => {
+    monkeys.forEach(monkey => {
+      monkey.items.forEach(item => {
         let worryLevel = monkey.operation(item, monkey);
         const original = worryLevel;
 

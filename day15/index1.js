@@ -15,7 +15,7 @@ const log = () => {
     for (let x = minX; x < maxX; x++) {
       let character = '.';
 
-      Object.values(sensors).forEach((sensor) => {
+      Object.values(sensors).forEach(sensor => {
         if (isInRange(sensor, x, y)) {
           character = '#';
         }
@@ -40,7 +40,7 @@ const log = () => {
 const sensors = {};
 const beacons = {};
 
-data.forEach((line) => {
+data.forEach(line => {
   const [sensor, beacon] = line
     .replace('Sensor at ', '')
     .replace(' closest beacon is at ', '')
@@ -48,8 +48,8 @@ data.forEach((line) => {
     .replaceAll(' y=', '')
     .split(':');
 
-  const [sensorX, sensorY] = sensor.split(',').map((str) => +str);
-  const [beaconX, beaconY] = beacon.split(',').map((str) => +str);
+  const [sensorX, sensorY] = sensor.split(',').map(str => +str);
+  const [beaconX, beaconY] = beacon.split(',').map(str => +str);
 
   const distance = Math.abs(sensorX - beaconX) + Math.abs(sensorY - beaconY);
 
@@ -96,7 +96,7 @@ for (let x = minX; x < maxX; x++) {
     continue;
   }
 
-  Object.values(sensors).forEach((sensor) => {
+  Object.values(sensors).forEach(sensor => {
     if (!locations[key] && isInRange(sensor, x, goalRow)) {
       locations[key] = true;
       count++;

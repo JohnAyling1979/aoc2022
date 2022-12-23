@@ -25,14 +25,14 @@ function part1(dataFile, testing) {
         }
 
         const found = rocks.find(
-          (rock) => JSON.stringify(rock) === JSON.stringify([x, y])
+          rock => JSON.stringify(rock) === JSON.stringify([x, y])
         );
 
         if (found) {
           character = '#';
         } else {
           const found = sands.find(
-            (sand) => JSON.stringify(sand) === JSON.stringify([x, y])
+            sand => JSON.stringify(sand) === JSON.stringify([x, y])
           );
 
           if (found) {
@@ -70,12 +70,12 @@ function part1(dataFile, testing) {
 
   const findObstacle = (x, y) => {
     let found = rocks.find(
-      (rock) => JSON.stringify(rock) === JSON.stringify([x, y])
+      rock => JSON.stringify(rock) === JSON.stringify([x, y])
     );
 
     if (!found) {
       found = sands.find(
-        (sand) => JSON.stringify(sand) === JSON.stringify([x, y])
+        sand => JSON.stringify(sand) === JSON.stringify([x, y])
       );
     }
 
@@ -84,7 +84,7 @@ function part1(dataFile, testing) {
 
   const pushUnique = (array, point) => {
     const found = array.find(
-      (item) => JSON.stringify(item) === JSON.stringify(point)
+      item => JSON.stringify(item) === JSON.stringify(point)
     );
 
     if (!found) {
@@ -96,17 +96,17 @@ function part1(dataFile, testing) {
   const sandStart = [500, 0];
   const sands = [];
 
-  data.forEach((line) => {
+  data.forEach(line => {
     const points = line.split(' -> ');
 
     let start = points
       .shift()
       .split(',')
-      .map((number) => +number);
+      .map(number => +number);
     pushUnique(rocks, start);
 
-    points.forEach((point) => {
-      const rock = point.split(',').map((number) => +number);
+    points.forEach(point => {
+      const rock = point.split(',').map(number => +number);
 
       if (rock[0] === start[0]) {
         const x = start[0];
@@ -178,14 +178,14 @@ function part2(dataFile, floor, testing) {
         }
 
         const found = rocks.find(
-          (rock) => JSON.stringify(rock) === JSON.stringify([x, y])
+          rock => JSON.stringify(rock) === JSON.stringify([x, y])
         );
 
         if (found) {
           character = '#';
         } else {
           const found = sands.find(
-            (sand) => JSON.stringify(sand) === JSON.stringify([x, y])
+            sand => JSON.stringify(sand) === JSON.stringify([x, y])
           );
 
           if (found) {
@@ -228,12 +228,12 @@ function part2(dataFile, floor, testing) {
 
   const findObstacle = (x, y) => {
     let found = rocks.find(
-      (rock) => JSON.stringify(rock) === JSON.stringify([x, y])
+      rock => JSON.stringify(rock) === JSON.stringify([x, y])
     );
 
     if (!found) {
       found = sands.find(
-        (sand) => JSON.stringify(sand) === JSON.stringify([x, y])
+        sand => JSON.stringify(sand) === JSON.stringify([x, y])
       );
     }
 
@@ -242,7 +242,7 @@ function part2(dataFile, floor, testing) {
 
   const pushUnique = (array, point) => {
     const found = array.find(
-      (item) => JSON.stringify(item) === JSON.stringify(point)
+      item => JSON.stringify(item) === JSON.stringify(point)
     );
 
     if (!found) {
@@ -254,17 +254,17 @@ function part2(dataFile, floor, testing) {
   const sandStart = [500, 0];
   const sands = [];
 
-  data.forEach((line) => {
+  data.forEach(line => {
     const points = line.split(' -> ');
 
     let start = points
       .shift()
       .split(',')
-      .map((number) => +number);
+      .map(number => +number);
     pushUnique(rocks, start);
 
-    points.forEach((point) => {
-      const rock = point.split(',').map((number) => +number);
+    points.forEach(point => {
+      const rock = point.split(',').map(number => +number);
 
       if (rock[0] === start[0]) {
         const x = start[0];

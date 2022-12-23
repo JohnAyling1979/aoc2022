@@ -18,18 +18,14 @@ function part1(dataFile) {
       this.nextY = y;
     }
 
-    n = () => elves.find((elf) => elf.x === this.x && elf.y === this.y - 1);
-    s = () => elves.find((elf) => elf.x === this.x && elf.y === this.y + 1);
-    e = () => elves.find((elf) => elf.x === this.x + 1 && elf.y === this.y);
-    w = () => elves.find((elf) => elf.x === this.x - 1 && elf.y === this.y);
-    ne = () =>
-      elves.find((elf) => elf.x === this.x + 1 && elf.y === this.y - 1);
-    nw = () =>
-      elves.find((elf) => elf.x === this.x - 1 && elf.y === this.y - 1);
-    se = () =>
-      elves.find((elf) => elf.x === this.x + 1 && elf.y === this.y + 1);
-    sw = () =>
-      elves.find((elf) => elf.x === this.x - 1 && elf.y === this.y + 1);
+    n = () => elves.find(elf => elf.x === this.x && elf.y === this.y - 1);
+    s = () => elves.find(elf => elf.x === this.x && elf.y === this.y + 1);
+    e = () => elves.find(elf => elf.x === this.x + 1 && elf.y === this.y);
+    w = () => elves.find(elf => elf.x === this.x - 1 && elf.y === this.y);
+    ne = () => elves.find(elf => elf.x === this.x + 1 && elf.y === this.y - 1);
+    nw = () => elves.find(elf => elf.x === this.x - 1 && elf.y === this.y - 1);
+    se = () => elves.find(elf => elf.x === this.x + 1 && elf.y === this.y + 1);
+    sw = () => elves.find(elf => elf.x === this.x - 1 && elf.y === this.y + 1);
 
     moveChecks = [
       () => {
@@ -88,7 +84,7 @@ function part1(dataFile) {
     move = () => {
       if (
         elves.find(
-          (elf) =>
+          elf =>
             elf.id !== this.id &&
             elf.nextX === this.nextX &&
             elf.nextY === this.nextY
@@ -115,7 +111,7 @@ function part1(dataFile) {
     let yMax = map.length - 1;
     let xMax = map[0].length - 1;
 
-    elves.forEach((elf) => {
+    elves.forEach(elf => {
       if (elf.x > xMax) xMax = elf.x;
       if (elf.x < xMin) xMin = elf.x;
       if (elf.y > yMax) yMax = elf.y;
@@ -125,7 +121,7 @@ function part1(dataFile) {
     for (let y = yMin; y < yMax + 1; y++) {
       const line = [];
       for (let x = xMin; x < xMax + 1; x++) {
-        if (elves.find((elf) => elf.x === x && elf.y === y)) {
+        if (elves.find(elf => elf.x === x && elf.y === y)) {
           line.push('#');
         } else {
           line.push('.');
@@ -143,7 +139,7 @@ function part1(dataFile) {
     let xMax = map[0].length - 1;
     let count = 0;
 
-    elves.forEach((elf) => {
+    elves.forEach(elf => {
       if (elf.x > xMax) xMax = elf.x;
       if (elf.x < xMin) xMin = elf.x;
       if (elf.y > yMax) yMax = elf.y;
@@ -152,7 +148,7 @@ function part1(dataFile) {
 
     for (let y = yMin; y < yMax + 1; y++) {
       for (let x = xMin; x < xMax + 1; x++) {
-        if (!elves.find((elf) => elf.x === x && elf.y === y)) {
+        if (!elves.find(elf => elf.x === x && elf.y === y)) {
           count++;
         }
       }
@@ -174,7 +170,7 @@ function part1(dataFile) {
 
   for (let rounds = 0; rounds < lastRound; rounds++) {
     let stillMoving = false;
-    elves.forEach((elf) => {
+    elves.forEach(elf => {
       if (elf.calculateNext()) {
         stillMoving = true;
       }
@@ -184,9 +180,9 @@ function part1(dataFile) {
       break;
     }
 
-    elves.forEach((elf) => elf.move());
+    elves.forEach(elf => elf.move());
 
-    elves.forEach((elf) => elf.cleanUp());
+    elves.forEach(elf => elf.cleanUp());
   }
 
   return calculateEmpty();
@@ -212,18 +208,14 @@ function part2(dataFile, testing) {
       this.nextY = y;
     }
 
-    n = () => elves.find((elf) => elf.x === this.x && elf.y === this.y - 1);
-    s = () => elves.find((elf) => elf.x === this.x && elf.y === this.y + 1);
-    e = () => elves.find((elf) => elf.x === this.x + 1 && elf.y === this.y);
-    w = () => elves.find((elf) => elf.x === this.x - 1 && elf.y === this.y);
-    ne = () =>
-      elves.find((elf) => elf.x === this.x + 1 && elf.y === this.y - 1);
-    nw = () =>
-      elves.find((elf) => elf.x === this.x - 1 && elf.y === this.y - 1);
-    se = () =>
-      elves.find((elf) => elf.x === this.x + 1 && elf.y === this.y + 1);
-    sw = () =>
-      elves.find((elf) => elf.x === this.x - 1 && elf.y === this.y + 1);
+    n = () => elves.find(elf => elf.x === this.x && elf.y === this.y - 1);
+    s = () => elves.find(elf => elf.x === this.x && elf.y === this.y + 1);
+    e = () => elves.find(elf => elf.x === this.x + 1 && elf.y === this.y);
+    w = () => elves.find(elf => elf.x === this.x - 1 && elf.y === this.y);
+    ne = () => elves.find(elf => elf.x === this.x + 1 && elf.y === this.y - 1);
+    nw = () => elves.find(elf => elf.x === this.x - 1 && elf.y === this.y - 1);
+    se = () => elves.find(elf => elf.x === this.x + 1 && elf.y === this.y + 1);
+    sw = () => elves.find(elf => elf.x === this.x - 1 && elf.y === this.y + 1);
 
     moveChecks = [
       () => {
@@ -282,7 +274,7 @@ function part2(dataFile, testing) {
     move = () => {
       if (
         elves.find(
-          (elf) =>
+          elf =>
             elf.id !== this.id &&
             elf.nextX === this.nextX &&
             elf.nextY === this.nextY
@@ -309,7 +301,7 @@ function part2(dataFile, testing) {
     let yMax = map.length - 1;
     let xMax = map[0].length - 1;
 
-    elves.forEach((elf) => {
+    elves.forEach(elf => {
       if (elf.x > xMax) xMax = elf.x;
       if (elf.x < xMin) xMin = elf.x;
       if (elf.y > yMax) yMax = elf.y;
@@ -319,7 +311,7 @@ function part2(dataFile, testing) {
     for (let y = yMin; y < yMax + 1; y++) {
       const line = [];
       for (let x = xMin; x < xMax + 1; x++) {
-        if (elves.find((elf) => elf.x === x && elf.y === y)) {
+        if (elves.find(elf => elf.x === x && elf.y === y)) {
           line.push('#');
         } else {
           line.push('.');
@@ -344,7 +336,7 @@ function part2(dataFile, testing) {
   let rounds = 0;
   for (; rounds < Infinity; rounds++) {
     let stillMoving = false;
-    elves.forEach((elf) => {
+    elves.forEach(elf => {
       if (elf.calculateNext()) {
         stillMoving = true;
       }
@@ -354,9 +346,9 @@ function part2(dataFile, testing) {
       break;
     }
 
-    elves.forEach((elf) => elf.move());
+    elves.forEach(elf => elf.move());
 
-    elves.forEach((elf) => elf.cleanUp());
+    elves.forEach(elf => elf.cleanUp());
   }
 
   return rounds + 1;

@@ -69,7 +69,7 @@ function part1(dataFile) {
   const traverseTree = (pointer, sum) => {
     if (pointer) {
       pointer.directories.forEach(
-        (directory) => (sum = traverseTree(directory, sum))
+        directory => (sum = traverseTree(directory, sum))
       );
 
       if (pointer.size <= limit) {
@@ -152,9 +152,9 @@ function part2(dataFile) {
 
   const canidates = [];
 
-  const traverseTree = (pointer) => {
+  const traverseTree = pointer => {
     if (pointer) {
-      pointer.directories.forEach((directory) => traverseTree(directory));
+      pointer.directories.forEach(directory => traverseTree(directory));
 
       if (pointer.size >= limit - (max - fileStructure.size)) {
         canidates.push(pointer);

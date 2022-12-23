@@ -136,7 +136,7 @@ function part1(dataFile) {
 
   const visited = [{ ...tail }];
 
-  steps.forEach((step) => {
+  steps.forEach(step => {
     const [direction, spaces] = step.split(' ');
 
     for (let i = 0; i < +spaces; i++) {
@@ -157,7 +157,7 @@ function part1(dataFile) {
 
       if (
         !visited.find(
-          (location) => location.x === tail.x && location.y === tail.y
+          location => location.x === tail.x && location.y === tail.y
         )
       ) {
         visited.push({ ...tail });
@@ -316,7 +316,7 @@ function part2(dataFile) {
     return false;
   };
 
-  const moveRight = (knotIndex) => {
+  const moveRight = knotIndex => {
     if (knotIndex === 0) {
       knots[knotIndex].x++;
     } else {
@@ -354,7 +354,7 @@ function part2(dataFile) {
     }
   };
 
-  const moveLeft = (knotIndex) => {
+  const moveLeft = knotIndex => {
     if (knotIndex === 0) {
       knots[knotIndex].x--;
     } else {
@@ -392,7 +392,7 @@ function part2(dataFile) {
     }
   };
 
-  const moveUp = (knotIndex) => {
+  const moveUp = knotIndex => {
     if (knotIndex === 0) {
       knots[knotIndex].y--;
     } else {
@@ -430,7 +430,7 @@ function part2(dataFile) {
     }
   };
 
-  const moveDown = (knotIndex) => {
+  const moveDown = knotIndex => {
     if (knotIndex === 0) {
       knots[knotIndex].y++;
     } else {
@@ -470,7 +470,7 @@ function part2(dataFile) {
 
   const visited = [{ ...knots[0] }];
 
-  steps.forEach((step) => {
+  steps.forEach(step => {
     const [direction, spaces] = step.split(' ');
 
     for (let i = 0; i < +spaces; i++) {
@@ -491,7 +491,7 @@ function part2(dataFile) {
 
       if (
         !visited.find(
-          (location) =>
+          location =>
             location.x === knots[tailIndex].x &&
             location.y === knots[tailIndex].y
         )

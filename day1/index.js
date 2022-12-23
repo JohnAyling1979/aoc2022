@@ -10,7 +10,7 @@ function part1(dataFile) {
 
   elvies[0] = 0;
 
-  data.forEach((line) => {
+  data.forEach(line => {
     if (line === '') {
       index++;
       elvies[index] = 0;
@@ -34,7 +34,7 @@ function part2(dataFile) {
 
   elvies[0] = 0;
 
-  data.forEach((line) => {
+  data.forEach(line => {
     if (line === '') {
       index++;
       elvies[index] = 0;

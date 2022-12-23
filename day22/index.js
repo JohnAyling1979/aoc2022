@@ -132,7 +132,7 @@ function part1(dataFile) {
     pos.y--;
   };
 
-  turn = (rotate) => {
+  turn = rotate => {
     switch (currentDirection) {
       case 'R':
         return rotate === 'R' ? 'D' : 'U';
@@ -156,7 +156,7 @@ function part1(dataFile) {
     return 1000 * (pos.y + 1) + 4 * (pos.x + 1) + facing[currentDirection];
   };
 
-  data[index].match(/[A-Z]+|[0-9]+/g).forEach((command) => {
+  data[index].match(/[A-Z]+|[0-9]+/g).forEach(command => {
     if (isNaN(+command)) {
       currentDirection = turn(command);
     } else {
@@ -428,7 +428,7 @@ function part2(dataFile, cubeSize) {
     pos.y--;
   };
 
-  turn = (rotate) => {
+  turn = rotate => {
     switch (currentDirection) {
       case 'R':
         return rotate === 'R' ? 'D' : 'U';
@@ -452,7 +452,7 @@ function part2(dataFile, cubeSize) {
     return 1000 * (pos.y + 1) + 4 * (pos.x + 1) + facing[currentDirection];
   };
 
-  data[index].match(/[A-Z]+|[0-9]+/g).forEach((command) => {
+  data[index].match(/[A-Z]+|[0-9]+/g).forEach(command => {
     if (isNaN(+command)) {
       currentDirection = turn(command);
     } else {

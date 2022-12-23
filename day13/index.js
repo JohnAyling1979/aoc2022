@@ -56,7 +56,7 @@ function part1(dataFile) {
 
   let newPair = null;
 
-  packets.forEach((packet) => {
+  packets.forEach(packet => {
     if (packet !== '') {
       if (!newPair) {
         newPair = {
@@ -110,8 +110,8 @@ function part2(dataFile) {
   const packets = fs
     .readFileSync(`${__dirname}/${dataFile}`, 'utf8')
     .split(/\r?\n/)
-    .filter((line) => line !== '')
-    .map((line) => JSON.parse(line));
+    .filter(line => line !== '')
+    .map(line => JSON.parse(line));
 
   packets.push([[2]]);
   packets.push([[6]]);
@@ -171,7 +171,7 @@ function part2(dataFile) {
     return 1;
   });
 
-  const packetsString = packets.map((line) => JSON.stringify(line));
+  const packetsString = packets.map(line => JSON.stringify(line));
 
   const code1 = packetsString.indexOf('[[2]]') + 1;
   const code2 = packetsString.indexOf('[[6]]') + 1;

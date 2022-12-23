@@ -4,7 +4,7 @@ function part1(dataFile) {
   const map = fs
     .readFileSync(`${__dirname}/${dataFile}`, 'utf8')
     .split(/\r?\n/)
-    .map((line) => line.split('').map((letter) => +letter));
+    .map(line => line.split('').map(letter => +letter));
 
   const checkUp = (current, x, y) => {
     let isVisible = true;
@@ -77,7 +77,7 @@ function part2(dataFile) {
   const map = fs
     .readFileSync(`${__dirname}/${dataFile}`, 'utf8')
     .split(/\r?\n/)
-    .map((line) => line.split('').map((letter) => +letter));
+    .map(line => line.split('').map(letter => +letter));
   let bestScore = 0;
 
   const checkUp = (current, x, y) => {

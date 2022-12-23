@@ -5,7 +5,7 @@ function part1(dataFile) {
   const data = fs
     .readFileSync(`${__dirname}/${dataFile}`, 'utf8')
     .split(/\r?\n/)
-    .map((number) => +number);
+    .map(number => +number);
   let linkedList = null;
 
   data.forEach((number, index) => {
@@ -29,7 +29,7 @@ function part2(dataFile) {
   const data = fs
     .readFileSync(`${__dirname}/${dataFile}`, 'utf8')
     .split(/\r?\n/)
-    .map((number) => +number * key);
+    .map(number => +number * key);
   let linkedList = null;
 
   data.forEach((number, index) => {

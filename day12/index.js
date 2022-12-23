@@ -176,7 +176,7 @@ function part2(dataFile) {
     });
   });
 
-  poses.forEach((pos) => {
+  poses.forEach(pos => {
     const test = mapGraph.findPathWithDijkstra(
       JSON.stringify(pos),
       JSON.stringify(end)

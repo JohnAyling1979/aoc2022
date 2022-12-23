@@ -45,8 +45,8 @@ function part1(dataFile) {
     const compartment2 = rucksack.substring(rucksack.length / 2);
     const foundItems = [];
 
-    compartment1.split('').forEach((item1) => {
-      compartment2.split('').forEach((item2) => {
+    compartment1.split('').forEach(item1 => {
+      compartment2.split('').forEach(item2 => {
         if (item1 === item2 && !foundItems.includes(item1)) {
           sum += prorityList[item1];
           foundItems.push(item1);
@@ -82,9 +82,9 @@ function part2(dataFile) {
   const sum = groups.reduce((sum, group) => {
     const foundItems = [];
 
-    group[0].split('').forEach((item1) => {
-      group[1].split('').forEach((item2) => {
-        group[2].split('').forEach((item3) => {
+    group[0].split('').forEach(item1 => {
+      group[1].split('').forEach(item2 => {
+        group[2].split('').forEach(item3 => {
           if (
             item1 === item2 &&
             item1 === item3 &&
