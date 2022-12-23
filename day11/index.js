@@ -154,8 +154,8 @@ function part2(dataFile) {
 	return monkeys[0].itemsInspected * monkeys[1].itemsInspected;
 }
 
-console.log(part1('data.txt'));
-console.log(part2('data.txt'));
+
+
 
 module.exports = {
 	part1,

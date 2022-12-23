@@ -479,9 +479,6 @@ function part2(dataFile, cubeSize) {
 	return calculateScore();
 }
 
-console.log(part1('data.txt'));
-console.log(part2('data.txt', 50));
-
 module.exports = {
 	part1,
 	part2

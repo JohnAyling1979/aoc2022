@@ -86,14 +86,9 @@ function part2(dataFile) {
 				drawCrt();
 		}
 	}
-	console.log(screen);
+
 	return screen;
 }
-
-console.log(part1('data.txt'));
-part2('sample.txt').forEach(line => {
-	console.log(line.join(''));
-});
 
 module.exports = {
 	part1,

@@ -156,8 +156,8 @@ function part2(dataFile) {
 	return canidates.sort((a, b) => a.size - b.size)[0].size;
 }
 
-console.log(part1('data.txt'));
-console.log(part2('data.txt'));
+
+
 
 module.exports = {
 	part1,

@@ -147,8 +147,8 @@ function part2(dataFile) {
 	return lowest;
 }
 
-console.log(part1('data.txt'));
-console.log(part2('data.txt'));
+
+
 
 module.exports = {
 	part1,

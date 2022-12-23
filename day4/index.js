@@ -76,8 +76,8 @@ function part2(dataFile) {
 	}, 0);
 }
 
-console.log(part1('data.txt'));
-console.log(part2('data.txt'));
+
+
 
 module.exports = {
 	part1,

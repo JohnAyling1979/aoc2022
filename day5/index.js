@@ -183,8 +183,8 @@ function part2(dataFile) {
 	return stacks.map(stack => stack[stack.length - 1]).join('');
 }
 
-console.log(part1('data.txt'));
-console.log(part2('data.txt'));
+
+
 
 module.exports = {
 	part1,

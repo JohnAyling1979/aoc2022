@@ -44,9 +44,6 @@ function part2(dataFile) {
 	return elvies[0] + elvies[1] + elvies[2];
 }
 
-console.log(part1('data.txt'));
-console.log(part2('data.txt'));
-
 module.exports = {
 	part1,
 	part2

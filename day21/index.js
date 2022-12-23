@@ -79,8 +79,8 @@ function part2(dataFile) {
     return nerdamer.solve(monkeys['root'], 'x').text();
 }
 
-console.log(part1('data.txt'));
-console.log(part2('data.txt'));
+
+
 
 module.exports = {
     part1,

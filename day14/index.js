@@ -280,9 +280,6 @@ function part2(dataFile, floor, testing) {
 	return sands.length;
 }
 
-console.log(part1('data.txt', true));
-console.log(part2('data.txt', 169, true));
-
 module.exports = {
 	part1,
 	part2
