@@ -14,5 +14,8 @@ describe('Day 15: Beacon Exclusion Zone', () => {
     test('Part 1 the number of positions that cannot contain the beacon should be 5716881', () => {
       expect(part1('data.txt', 2000000, true)).toBe(5716881);
     });
+    test('Part 2 the tuning frequency should be 10852583132904', () => {
+      expect(part2('data.txt', 4000000, true)).toBe(10852583132904);
+    });
   });
 });

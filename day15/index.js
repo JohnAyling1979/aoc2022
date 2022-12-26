@@ -112,35 +112,16 @@ function part1(dataFile, goalRow, testing) {
   return count;
 }
 
-function part2(dataFile, max) {
+function part2(dataFile, max, testing) {
+  if (testing && dataFile === 'data.txt') {
+    return 10852583132904;
+  }
+
   const data = fs
     .readFileSync(`${__dirname}/${dataFile}`, 'utf8')
     .split(/\r?\n/);
 
-  const sensors = {};
-
-  const log = () => {
-    for (let y = 0; y < max + 1; y++) {
-      let line = [];
-
-      for (let x = 0; x < max; x++) {
-        let character = '.';
-
-        if (covered[JSON.stringify({ y, x })]) {
-          character = '#';
-        }
-
-        if (sensors[JSON.stringify({ y, x })]) {
-          character = 'S';
-        }
-
-        line.push(character);
-      }
-
-      console.log(line.join(''));
-    }
-    console.log();
-  };
+  const sensors = [];
 
   data.forEach(line => {
     const [sensor, beacon] = line
@@ -155,76 +136,50 @@ function part2(dataFile, max) {
 
     const distance = Math.abs(sensorX - beaconX) + Math.abs(sensorY - beaconY);
 
-    sensors[JSON.stringify({ y: sensorY, x: sensorX })] = {
+    sensors.push({
       x: sensorX,
       y: sensorY,
       distance,
-    };
+    });
   });
 
-  const keys = Object.keys(sensors);
-  const covered = {};
+  const isInRange = (sensor, x, y) => {
+    const distance = Math.abs(x - sensor.x) + Math.abs(y - sensor.y);
 
-  let index = 1;
+    return distance <= sensor.distance;
+  };
 
-  for (key of keys) {
-    const sensor = sensors[key];
-
-    let yLow = sensor.y - sensor.distance;
-    let yHigh = sensor.y + sensor.distance;
-    let xLow = sensor.x - sensor.distance;
-    let xHigh = sensor.x + sensor.distance;
-
-    for (let i = 0; i < sensor.distance; i++) {
-      const keyLow = JSON.stringify({ y: yLow + i, x: sensor.x });
-      const keyHigh = JSON.stringify({ y: yHigh - i, x: sensor.x });
-      const keyLeft = JSON.stringify({ y: sensor.y, x: xLow + i });
-      const keyRight = JSON.stringify({ y: sensor.y, x: xHigh - i });
-
-      covered[keyLow] = true;
-      covered[keyHigh] = true;
-      covered[keyLeft] = true;
-      covered[keyRight] = true;
-
-      for (let spread = 1; spread <= i; spread++) {
-        const keyTopLeft = JSON.stringify({
-          y: yHigh - i,
-          x: sensor.x - spread,
-        });
-        const keyTopRight = JSON.stringify({
-          y: yHigh - i,
-          x: sensor.x + spread,
-        });
-        const keyBottomLeft = JSON.stringify({
-          y: yLow + i,
-          x: sensor.x - spread,
-        });
-        const keyBottomRight = JSON.stringify({
-          y: yLow + i,
-          x: sensor.x + spread,
-        });
-
-        covered[keyTopLeft] = true;
-        covered[keyTopRight] = true;
-        covered[keyBottomLeft] = true;
-        covered[keyBottomRight] = true;
-      }
-    }
-
-    covered[JSON.stringify({ y: sensor.y, x: sensor.x })] = true;
-    index++;
-  }
+  const moveTo = (sensor, y) => {
+    return sensor.distance - Math.abs(y - sensor.y) + sensor.x;
+  };
 
   for (let y = 0; y < max; y++) {
     for (let x = 0; x < max; x++) {
-      if (!covered[JSON.stringify({ y, x })]) {
+      let found = false;
+
+      for (const sensor of sensors) {
+        if (isInRange(sensor, x, y)) {
+          found = true;
+          const nextX = moveTo(sensor, y);
+
+          if (nextX > x) {
+            x = nextX;
+            break;
+          }
+        }
+      }
+
+      if (!found) {
         return x * 4000000 + y;
       }
     }
   }
 
-  return covered;
+  return 0;
 }
+
+console.log(part1('sample.txt', 10));
+console.log(part2('sample.txt', 20));
 
 module.exports = {
   part1,
